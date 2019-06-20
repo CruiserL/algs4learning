@@ -5,6 +5,7 @@ import com.gaoyang.lzj.algs4learning.common.SortUtil;
 import com.gaoyang.lzj.algs4learning.common.SortAlgoCompare;
 import com.gaoyang.lzj.algs4learning.sortalgs.InsertionSort;
 import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
+import com.gaoyang.lzj.algs4learning.sortinterface.SwitchSortAlgo;
 
 /**
  * Desc: 归并排序
@@ -12,14 +13,17 @@ import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
  * @author Cruiser_L
  * @date 2019/5/18
  */
-public class BetterMergeSort implements SortAlgo {
+public class BetterMergeSort implements SwitchSortAlgo {
+
+    private static int switchPoint;
     @Override
-    public long sort(Comparable[] arr) {
+    public long sort(Comparable[] arr, int switchPoint) {
         long start = System.currentTimeMillis();
         int arrLen = arr.length;
         Comparable[] tempArr = new Comparable[arrLen];
         System.arraycopy(arr, 0, tempArr, 0, arrLen);
-        int left = 0, right = arrLen - 1, mid = (left + right) / 2;
+        int left = 0, right = arrLen - 1;
+        BetterMergeSort.switchPoint = switchPoint;
         mergeSort(arr, tempArr, left, right);
 
         long end = System.currentTimeMillis();
@@ -32,7 +36,7 @@ public class BetterMergeSort implements SortAlgo {
             return;
         }
         int mid = (left + right) / 2;
-        if (right - left < 7) {
+        if (right - left < switchPoint) {
 //            Comparable[] temp = new Comparable[right - left + 1];
 //            System.arraycopy(arr, left, temp, 0, right - left + 1);
 //            InsertionSort.staticSort(temp);
@@ -68,9 +72,9 @@ public class BetterMergeSort implements SortAlgo {
         }
     }
 
-    public static void sortCompareDouble(int times, int minLen, int maxLen, int maxDur, SortAlgo sortAlgo) {
+    public static void sortCompareDouble(int times, int minLen, int maxLen, int maxDur, SwitchSortAlgo sortAlgo) {
         for (int arrLen = minLen; arrLen <= maxLen; arrLen *= 2) {
-            long shellSortTime = SortAlgoCompare.sortTotalTime(times, arrLen, sortAlgo);
+            long shellSortTime = SortAlgoCompare.betterSortTotalTime(times, arrLen, sortAlgo);
             if (shellSortTime >= maxDur) {
                 System.out.println("此算法处理更大规模的数组时间太长，不再执行更大规模的排序");
                 break;

@@ -1,7 +1,9 @@
 package com.gaoyang.lzj.algs4learning.sortalgs;
 
+import com.alibaba.fastjson.JSON;
 import com.gaoyang.lzj.algs4learning.common.Algs4Consts;
 import com.gaoyang.lzj.algs4learning.common.SortAlgoCompare;
+import com.gaoyang.lzj.algs4learning.sortalgs.betterMergeSort.BetterMergeSort;
 import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
 
 /**
@@ -11,21 +13,22 @@ import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
  * @date 2019/6/6
  */
 public class BottomUpMergeSort implements SortAlgo {
+
     @Override
     public long sort(Comparable[] arr) {
         long start = System.currentTimeMillis();
         int arrLen = arr.length;
         Comparable[] tempArr = new Comparable[arrLen];
-        for (int i = 1; i < arrLen; i += i) {
-            for (int j = 0; j + i < arrLen; j += 2 * i) {
-                MergeSort.merge(arr, tempArr, j, Math.min(j + 2 * i - 1, arrLen - 1), j + i - 1);
-            }
-        }
 
+        for (int stepLen = 1; stepLen < arrLen; stepLen *= 2) {
+            for (int j = 0; j + stepLen < arrLen; j += 2 * stepLen) {
+                BetterMergeSort.merge(arr, tempArr, j, Math.min(arrLen-1, j + 2 * stepLen-1), j + stepLen-1);
+            }
+//            System.out.println(JSON.toJSONString(arr));
+        }
 
         long end = System.currentTimeMillis();
         return end - start;
-
     }
 
     public static void sortCompareDouble(int times, int minLen, int maxLen, int maxDur, SortAlgo sortAlgo) {
@@ -42,6 +45,24 @@ public class BottomUpMergeSort implements SortAlgo {
 
         sortCompareDouble(Algs4Consts.times, Algs4Consts.minLen, Algs4Consts.maxLen, Algs4Consts.maxDur, new BottomUpMergeSort());
     }
+
+
+//    @Override
+//    public long sort(Comparable[] arr) {
+//        long start = System.currentTimeMillis();
+//        int arrLen = arr.length;
+//        Comparable[] tempArr = new Comparable[arrLen];
+//        for (int i = 1; i < arrLen; i += i) {
+//            for (int j = 0; j + i < arrLen; j += 2 * i) {
+//                BetterMergeSort.merge(arr, tempArr, j, Math.min(j + 2 * i - 1, arrLen - 1), j + i - 1);
+//            }
+//        }
+//
+//
+//        long end = System.currentTimeMillis();
+//        return end - start;
+//
+//    }
 
 //    Comparable[] tempArr = new Comparable[arrLen];
 //        System.arraycopy(arr, 0, tempArr, 0, arrLen);

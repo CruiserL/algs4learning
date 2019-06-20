@@ -85,12 +85,12 @@ public class SortAlgoCompare {
                 quickSortTime = sortTotalTime(times, arrLen, new QuickSort());
             }
 
-            if (bettermerge7SortTime >= maxDur) {
-                System.out.printf("%24s处理更大规模的数组时间太长，不再执行更大规模的排序", BetterMergeSort.class.getSimpleName());
-                System.out.println();
-            } else {
-                bettermerge7SortTime = sortTotalTime(times, arrLen, new BetterMergeSort());
-            }
+//            if (bettermerge7SortTime >= maxDur) {
+//                System.out.printf("%24s处理更大规模的数组时间太长，不再执行更大规模的排序", BetterMergeSort.class.getSimpleName());
+//                System.out.println();
+//            } else {
+//                bettermerge7SortTime = sortTotalTime(times, arrLen, new BetterMergeSort());
+//            }
 
             if (better14mergeSortTime >= maxDur) {
                 System.out.printf("%24s处理更大规模的数组时间太长，不再执行更大规模的排序", Better14MergeSort.class.getSimpleName());
