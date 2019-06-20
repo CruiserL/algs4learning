@@ -24,25 +24,7 @@ public class SortTest {
 //        In in = new In("H:\\algs4-data\\tinyUF.txt");
         Stopwatch stopwatch = new Stopwatch();
         System.out.println(new Date());
-//        int n = in.readInt();
-//        System.out.println(n);
-//        ArrayList<Link> links = new ArrayList<>();
-//        while (!in.isEmpty()) {
-//            int p = in.readInt();
-//            int q = in.readInt();
-//            Link link;
-//            if (p > q) {
-//                link = new Link(q, p);
-//            }else{
-//                link = new Link(p, q);
-//            }
-//            links.add(link);
-//        }
-//        System.out.println(links);
-//        Link[] linksArr = (Link[])links.toArray(new Link[links.size()]);
-        int arrLen = 100000;
-
-
+        int arrLen = 1000;
 
         Double[] linksArr = new Double[arrLen];
         for (int i = 0; i < arrLen; i++) {
@@ -66,3 +48,19 @@ public class SortTest {
     }
 
 }
+//        int n = in.readInt();
+//        System.out.println(n);
+//        ArrayList<Link> links = new ArrayList<>();
+//        while (!in.isEmpty()) {
+//            int p = in.readInt();
+//            int q = in.readInt();
+//            Link link;
+//            if (p > q) {
+//                link = new Link(q, p);
+//            }else{
+//                link = new Link(p, q);
+//            }
+//            links.add(link);
+//        }
+//        System.out.println(links);
+//        Link[] linksArr = (Link[])links.toArray(new Link[links.size()]);
