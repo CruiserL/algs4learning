@@ -19,39 +19,78 @@ public class QuickSort implements SortAlgo {
         sort(arr, 0, arrLen - 1);
         long end = System.currentTimeMillis();
         return end - start;
+
     }
 
-    public static void sort(Comparable[] arr, int left, int right) {
-        if (left > right) {
+    public void sort(Comparable[] arr, int left, int right) {
+        if(right - left <= 27){
+            InsertionSort.staticSort(arr, left, right);
             return;
         }
-
-        int cuttingPiont = partition(arr, left, right);
-        sort(arr, left, cuttingPiont - 1);
-        sort(arr, cuttingPiont + 1, right);
+        if (right <= left) {
+            return;
+        }
+        int cuttingPoint = partition(arr, left, right);
+        sort(arr, left, cuttingPoint - 1);
+        sort(arr, cuttingPoint + 1, right);
     }
 
     public static int partition(Comparable[] arr, int left, int right) {
-        int leftSentry = left, rightSentry = right + 1;
-        while (leftSentry < rightSentry) {
-            while (++leftSentry < rightSentry && SortUtil.arrLess(arr, leftSentry, left)) {
+        int i = left;
+        int j = right + 1;
+        while (i < j) {
+            while (++i < j && SortUtil.arrLess(arr, i, left)) {
             }
-            while (--rightSentry >= leftSentry && SortUtil.arrLess(arr, left, rightSentry)) {
+            while (--j >= i && SortUtil.arrLess(arr, left, j)) {
             }
-            if (leftSentry < rightSentry) {
-                SortUtil.exchange(leftSentry, rightSentry, arr);
+            if (i < j) {
+                SortUtil.exchange(i, j, arr);
             }
         }
-
-        SortUtil.exchange(rightSentry, left, arr);
-        return rightSentry;
+        SortUtil.exchange(j, left, arr);
+        return j;
     }
-
 
     public static void main(String[] args) {
 
         SortUtil.sortCompareDouble(Algs4Consts.times, Algs4Consts.minLen, Algs4Consts.maxLen, Algs4Consts.maxDur, new QuickSort());
     }
+
+
+//    @Override
+//    public long sort(Comparable[] arr) {
+//        long start = System.currentTimeMillis();
+//        int arrLen = arr.length;
+//        sort(arr, 0, arrLen - 1);
+//        long end = System.currentTimeMillis();
+//        return end - start;
+//    }
+//
+//    public static void sort(Comparable[] arr, int left, int right) {
+//        if (left > right) {
+//            return;
+//        }
+//
+//        int cuttingPiont = partition(arr, left, right);
+//        sort(arr, left, cuttingPiont - 1);
+//        sort(arr, cuttingPiont + 1, right);
+//    }
+//
+//    public static int partition(Comparable[] arr, int left, int right) {
+//        int leftSentry = left, rightSentry = right + 1;
+//        while (leftSentry < rightSentry) {
+//            while (++leftSentry < rightSentry && SortUtil.arrLess(arr, leftSentry, left)) {
+//            }
+//            while (--rightSentry >= leftSentry && SortUtil.arrLess(arr, left, rightSentry)) {
+//            }
+//            if (leftSentry < rightSentry) {
+//                SortUtil.exchange(leftSentry, rightSentry, arr);
+//            }
+//        }
+//
+//        SortUtil.exchange(rightSentry, left, arr);
+//        return rightSentry;
+//    }
 
 
 //    private static void sort(Comparable[] arr, int left, int right) {
