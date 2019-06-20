@@ -84,7 +84,7 @@ public class BetterMergeSort implements SwitchSortAlgo {
 
     public static void main(String[] args) {
 
-        sortCompareDouble(Algs4Consts.times, Algs4Consts.minLen, Algs4Consts.maxLen, Algs4Consts.maxDur, new BetterMergeSort());
+        SortUtil.betterSortCompareDouble(Algs4Consts.times, Algs4Consts.minLen, Algs4Consts.maxLen, Algs4Consts.maxDur, new BetterMergeSort());
     }
 
 
