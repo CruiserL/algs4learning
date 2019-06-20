@@ -45,7 +45,7 @@ public class SortAlgoCompare {
         Double[] doubles = new Double[length];
         long total = 0;
         int switchingPoint;
-        for (switchingPoint = 3; switchingPoint < 30; switchingPoint++) {
+        for (switchingPoint = 3; switchingPoint < 61; switchingPoint++) {
             total = 0;
             for (int time = 0; time < times; time++) {
                 for (int i = 0; i < length; i++) {

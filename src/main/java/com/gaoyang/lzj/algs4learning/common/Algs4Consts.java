@@ -23,7 +23,7 @@ public class Algs4Consts {
     /**
      * 最长等待时间, 单位ms
      */
-    public static int maxDur = 600000;
+    public static int maxDur = 3600000;
     /**
      * 归并排序转插入排序子数组长度临界值
      */
