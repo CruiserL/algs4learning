@@ -1,10 +1,9 @@
-package com.gaoyang.lzj.algs4learning.sortalgs.betterMergeSort;
+package com.gaoyang.lzj.algs4learning.sortalgs.bettermergesort;
 
 import com.gaoyang.lzj.algs4learning.common.Algs4Consts;
 import com.gaoyang.lzj.algs4learning.common.SortUtil;
 import com.gaoyang.lzj.algs4learning.common.SortAlgoCompare;
 import com.gaoyang.lzj.algs4learning.sortalgs.InsertionSort;
-import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
 import com.gaoyang.lzj.algs4learning.sortinterface.SwitchSortAlgo;
 
 /**

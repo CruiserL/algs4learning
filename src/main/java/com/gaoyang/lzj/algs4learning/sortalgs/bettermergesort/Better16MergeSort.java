@@ -1,4 +1,4 @@
-package com.gaoyang.lzj.algs4learning.sortalgs.betterMergeSort;
+package com.gaoyang.lzj.algs4learning.sortalgs.bettermergesort;
 
 import com.gaoyang.lzj.algs4learning.common.Algs4Consts;
 import com.gaoyang.lzj.algs4learning.common.SortUtil;

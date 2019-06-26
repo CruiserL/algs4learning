@@ -1,9 +1,8 @@
 package com.gaoyang.lzj.algs4learning.sortalgs;
 
-import com.alibaba.fastjson.JSON;
 import com.gaoyang.lzj.algs4learning.common.Algs4Consts;
 import com.gaoyang.lzj.algs4learning.common.SortAlgoCompare;
-import com.gaoyang.lzj.algs4learning.sortalgs.betterMergeSort.BetterMergeSort;
+import com.gaoyang.lzj.algs4learning.sortalgs.bettermergesort.BetterMergeSort;
 import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
 
 /**

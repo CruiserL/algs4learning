@@ -1,8 +1,10 @@
 package com.gaoyang.lzj.algs4learning.sortalgs;
 
+import com.alibaba.fastjson.JSON;
 import com.gaoyang.lzj.algs4learning.common.Algs4Consts;
 import com.gaoyang.lzj.algs4learning.common.SortUtil;
 import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
+import edu.princeton.cs.algs4.QuickBentleyMcIlroy;
 
 /**
  * Desc: 快速排序算法学习
@@ -16,45 +18,89 @@ public class QuickSort implements SortAlgo {
     public long sort(Comparable[] arr) {
         long start = System.currentTimeMillis();
         int arrLen = arr.length;
-        sort(arr, 0, arrLen - 1);
+        sort(arr, 0, arrLen-1);
         long end = System.currentTimeMillis();
-        return end - start;
-
+        return end -start;
     }
 
-    public void sort(Comparable[] arr, int left, int right) {
-        if(right - left <= 27){
+
+    private void sort(Comparable[] arr, int left, int right){
+        if(right - left <= 10){
             InsertionSort.staticSort(arr, left, right);
-            return;
+        }else{
+//            if(right<=left){
+//                return;
+//            }
+            int cuttingPoint = partition(arr, left, right);
+            sort(arr, left, cuttingPoint-1);
+            sort(arr, cuttingPoint+1, right);
         }
-        if (right <= left) {
-            return;
-        }
-        int cuttingPoint = partition(arr, left, right);
-        sort(arr, left, cuttingPoint - 1);
-        sort(arr, cuttingPoint + 1, right);
     }
 
-    public static int partition(Comparable[] arr, int left, int right) {
-        int i = left;
-        int j = right + 1;
-        while (i < j) {
-            while (++i < j && SortUtil.arrLess(arr, i, left)) {
-            }
-            while (--j >= i && SortUtil.arrLess(arr, left, j)) {
-            }
-            if (i < j) {
+    private int partition(Comparable[] arr, int left, int right){
+        int i = left, j = right+1;
+
+        while(i<j){
+            while(++i<j && SortUtil.arrLess(arr, i, left)){}
+            while(--j>=i && SortUtil.arrLess(arr, left, j)){}
+            if(i<j){
                 SortUtil.exchange(i, j, arr);
             }
         }
-        SortUtil.exchange(j, left, arr);
+        SortUtil.exchange(left, j, arr);
+//        System.out.println(JSON.toJSONString(arr));
         return j;
     }
+
 
     public static void main(String[] args) {
 
         SortUtil.sortCompareDouble(Algs4Consts.times, Algs4Consts.minLen, Algs4Consts.maxLen, Algs4Consts.maxDur, new QuickSort());
+
+
     }
+
+
+
+//    @Override
+//    public long sort(Comparable[] arr) {
+//        long start = System.currentTimeMillis();
+//        int arrLen = arr.length;
+//        sort(arr, 0, arrLen - 1);
+//        long end = System.currentTimeMillis();
+//        return end - start;
+//
+//    }
+//
+//    public void sort(Comparable[] arr, int left, int right) {
+//        if(right - left <= 27){
+//            InsertionSort.staticSort(arr, left, right);
+//            return;
+//        }
+//        if (right <= left) {
+//            return;
+//        }
+//        int cuttingPoint = partition(arr, left, right);
+//        sort(arr, left, cuttingPoint - 1);
+//        sort(arr, cuttingPoint + 1, right);
+//    }
+//
+//    public static int partition(Comparable[] arr, int left, int right) {
+//        int i = left;
+//        int j = right + 1;
+//        while (i < j) {
+//            while (++i < j && SortUtil.arrLess(arr, i, left)) {
+//            }
+//            while (--j >= i && SortUtil.arrLess(arr, left, j)) {
+//            }
+//            if (i < j) {
+//                SortUtil.exchange(i, j, arr);
+//            }
+//        }
+//        SortUtil.exchange(j, left, arr);
+//        return j;
+//    }
+
 
 
 //    @Override

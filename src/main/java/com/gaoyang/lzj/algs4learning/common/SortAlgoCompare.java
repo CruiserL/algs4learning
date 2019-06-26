@@ -1,10 +1,9 @@
 package com.gaoyang.lzj.algs4learning.common;
 
 import com.gaoyang.lzj.algs4learning.sortalgs.*;
-import com.gaoyang.lzj.algs4learning.sortalgs.betterMergeSort.Better14MergeSort;
-import com.gaoyang.lzj.algs4learning.sortalgs.betterMergeSort.Better16MergeSort;
-import com.gaoyang.lzj.algs4learning.sortalgs.betterMergeSort.Better30MergeSort;
-import com.gaoyang.lzj.algs4learning.sortalgs.betterMergeSort.BetterMergeSort;
+import com.gaoyang.lzj.algs4learning.sortalgs.bettermergesort.Better14MergeSort;
+import com.gaoyang.lzj.algs4learning.sortalgs.bettermergesort.Better16MergeSort;
+import com.gaoyang.lzj.algs4learning.sortalgs.bettermergesort.Better30MergeSort;
 import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
 import com.gaoyang.lzj.algs4learning.sortinterface.SwitchSortAlgo;
 

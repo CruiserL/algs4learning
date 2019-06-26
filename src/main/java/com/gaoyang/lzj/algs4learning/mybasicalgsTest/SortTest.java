@@ -1,10 +1,9 @@
 package com.gaoyang.lzj.algs4learning.mybasicalgsTest;
 
 import com.alibaba.fastjson.JSON;
-import com.gaoyang.lzj.algs4learning.sortalgs.BottomUpMergeSort;
-import com.gaoyang.lzj.algs4learning.sortalgs.InsertionSort;
-import com.gaoyang.lzj.algs4learning.sortalgs.MergeSort;
-import com.gaoyang.lzj.algs4learning.sortalgs.QuickSort;
+import com.gaoyang.lzj.algs4learning.sortalgs.*;
+import com.gaoyang.lzj.algs4learning.sortalgs.betterquicksort.QuickSort3Way;
+import com.gaoyang.lzj.algs4learning.sortalgs.betterquicksort.QuickSort3WayAlgs4;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.Stopwatch;
 import org.springframework.util.CollectionUtils;
@@ -25,16 +24,17 @@ public class SortTest {
 //        In in = new In("H:\\algs4-data\\tinyUF.txt");
         Stopwatch stopwatch = new Stopwatch();
         System.out.println(new Date());
-        int arrLen = 100000;
+        int arrLen = 1000;
 
         Double[] linksArr = new Double[arrLen];
         for (int i = 0; i < arrLen; i++) {
             linksArr[i] = (double) arrLen - i;
         }
-//        StdRandom.shuffle(linksArr);
+        StdRandom.shuffle(linksArr);
         System.out.println("排序前数组：");
         System.out.println(JSON.toJSONString(linksArr));
-        new BottomUpMergeSort().sort(linksArr);
+        new QuickSort().sort(linksArr);
+//        new QuickSort3WayAlgs4().sort(linksArr, 10);
 //        InsertionSort.staticSort(linksArr, 0, arrLen-1);
         System.out.println("数组排序完成：");
         System.out.println(JSON.toJSONString(linksArr));

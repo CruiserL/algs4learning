@@ -1,7 +1,8 @@
-package com.gaoyang.lzj.algs4learning.sortalgs;
+package com.gaoyang.lzj.algs4learning.sortalgs.betterquicksort;
 
 import com.gaoyang.lzj.algs4learning.common.Algs4Consts;
 import com.gaoyang.lzj.algs4learning.common.SortUtil;
+import com.gaoyang.lzj.algs4learning.sortalgs.InsertionSort;
 import com.gaoyang.lzj.algs4learning.sortinterface.SwitchSortAlgo;
 
 /**

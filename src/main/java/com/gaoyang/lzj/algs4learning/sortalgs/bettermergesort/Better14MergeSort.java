@@ -1,4 +1,4 @@
-package com.gaoyang.lzj.algs4learning.sortalgs.betterMergeSort;
+package com.gaoyang.lzj.algs4learning.sortalgs.bettermergesort;
 
 import com.gaoyang.lzj.algs4learning.common.Algs4Consts;
 import com.gaoyang.lzj.algs4learning.common.SortUtil;
@@ -12,7 +12,7 @@ import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
  * @author Cruiser_L
  * @date 2019/5/18
  */
-public class Better30MergeSort implements SortAlgo {
+public class Better14MergeSort implements SortAlgo {
     @Override
     public long sort(Comparable[] arr) {
         long start = System.currentTimeMillis();
@@ -32,7 +32,7 @@ public class Better30MergeSort implements SortAlgo {
             return;
         }
         int mid = (left + right) / 2;
-        if (right - left < 30) {
+        if (right - left < 14) {
             InsertionSort.staticSort(arr, left, right);
         } else {
             mergeSort(arr, tempArr, left, mid);
@@ -76,7 +76,7 @@ public class Better30MergeSort implements SortAlgo {
 
     public static void main(String[] args) {
 
-        sortCompareDouble(Algs4Consts.times, Algs4Consts.minLen, Algs4Consts.maxLen, Algs4Consts.maxDur, new Better30MergeSort());
+        sortCompareDouble(Algs4Consts.times, Algs4Consts.minLen, Algs4Consts.maxLen, Algs4Consts.maxDur, new Better14MergeSort());
     }
 
 
