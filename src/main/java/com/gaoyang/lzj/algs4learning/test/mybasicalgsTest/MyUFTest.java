@@ -1,4 +1,4 @@
-package com.gaoyang.lzj.algs4learning.mybasicalgsTest;
+package com.gaoyang.lzj.algs4learning.test.mybasicalgsTest;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Stopwatch;

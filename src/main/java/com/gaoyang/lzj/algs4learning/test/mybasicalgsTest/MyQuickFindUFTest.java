@@ -1,16 +1,10 @@
-package com.gaoyang.lzj.algs4learning.mybasicalgsTest;
+package com.gaoyang.lzj.algs4learning.test.mybasicalgsTest;
 
 
-import com.gaoyang.lzj.algs4learning.mybasicalgs.MyQuickFindUF;
-import com.gaoyang.lzj.algs4learning.mybasicalgs.MyUF;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.QuickFindUF;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.Stopwatch;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Desc:

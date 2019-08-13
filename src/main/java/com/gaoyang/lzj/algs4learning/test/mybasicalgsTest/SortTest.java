@@ -1,15 +1,11 @@
-package com.gaoyang.lzj.algs4learning.mybasicalgsTest;
+package com.gaoyang.lzj.algs4learning.test.mybasicalgsTest;
 
 import com.alibaba.fastjson.JSON;
 import com.gaoyang.lzj.algs4learning.sortalgs.*;
-import com.gaoyang.lzj.algs4learning.sortalgs.betterquicksort.QuickSort3Way;
-import com.gaoyang.lzj.algs4learning.sortalgs.betterquicksort.QuickSort3WayAlgs4;
+import com.gaoyang.lzj.algs4learning.sortalgs.betterheapsort.BetterHeapSort;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.Stopwatch;
-import org.springframework.util.CollectionUtils;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -24,27 +20,30 @@ public class SortTest {
 //        In in = new In("H:\\algs4-data\\tinyUF.txt");
         Stopwatch stopwatch = new Stopwatch();
         System.out.println(new Date());
-        int arrLen = 1000;
+        int arrLen = 10;
+        int testTime = 100;
 
         Double[] linksArr = new Double[arrLen];
         for (int i = 0; i < arrLen; i++) {
             linksArr[i] = (double) arrLen - i;
         }
-        StdRandom.shuffle(linksArr);
-        System.out.println("排序前数组：");
-        System.out.println(JSON.toJSONString(linksArr));
-        new QuickSort().sort(linksArr);
+        for (int j = 0; j < testTime;j++) {
+            StdRandom.shuffle(linksArr);
+            System.out.println("排序前数组：");
+            System.out.println(JSON.toJSONString(linksArr));
+            new BetterHeapSort().sort(linksArr);
 //        new QuickSort3WayAlgs4().sort(linksArr, 10);
 //        InsertionSort.staticSort(linksArr, 0, arrLen-1);
-        System.out.println("数组排序完成：");
-        System.out.println(JSON.toJSONString(linksArr));
-        for (int i = 0; i < arrLen - 1; i++) {
-            if (linksArr[i] > linksArr[i + 1]) {
-                System.out.println("算法排序出错");
-                break;
+            System.out.println("数组排序完成：");
+            System.out.println(JSON.toJSONString(linksArr));
+            for (int i = 0; i < arrLen - 1; i++) {
+                if (linksArr[i] > linksArr[i + 1]) {
+                    System.out.println("算法排序出错");
+                    return;
+                }
             }
+            System.out.println("排序耗时： " + stopwatch.elapsedTime() + "s");
         }
-        System.out.println(stopwatch.elapsedTime());
         System.out.println(new Date());
     }
 

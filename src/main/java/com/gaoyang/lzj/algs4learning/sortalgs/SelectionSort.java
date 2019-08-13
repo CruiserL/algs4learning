@@ -1,7 +1,7 @@
 package com.gaoyang.lzj.algs4learning.sortalgs;
 
 import com.alibaba.fastjson.JSON;
-import com.gaoyang.lzj.algs4learning.mybasicalgsTest.Link;
+import com.gaoyang.lzj.algs4learning.test.mybasicalgsTest.Link;
 import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
 
 import java.util.List;

@@ -1,8 +1,6 @@
-package com.gaoyang.lzj.algs4learning.mybasicalgsTest;
+package com.gaoyang.lzj.algs4learning.test.mybasicalgsTest;
 
 import com.alibaba.fastjson.JSON;
-
-import java.util.Arrays;
 
 /**
  * Desc: UF.txt的链接
