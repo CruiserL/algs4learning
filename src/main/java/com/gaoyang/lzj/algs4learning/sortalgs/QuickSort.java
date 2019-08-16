@@ -15,13 +15,18 @@ import edu.princeton.cs.algs4.QuickBentleyMcIlroy;
 public class QuickSort implements SortAlgo {
 
     @Override
-    public long sort(Comparable[] arr) {
-        long start = System.currentTimeMillis();
-        int arrLen = arr.length;
-        sort(arr, 0, arrLen-1);
-        long end = System.currentTimeMillis();
-        return end -start;
+    public void sort(Comparable[] arr) {
+
     }
+
+//    @Override
+//    public long sort(Comparable[] arr) {
+//        long start = System.currentTimeMillis();
+//        int arrLen = arr.length;
+//        sort(arr, 0, arrLen-1);
+//        long end = System.currentTimeMillis();
+//        return end -start;
+//    }
 
 
     private void sort(Comparable[] arr, int left, int right){
@@ -59,6 +64,7 @@ public class QuickSort implements SortAlgo {
 
 
     }
+
 
 
 

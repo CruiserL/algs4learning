@@ -13,22 +13,7 @@ import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
  */
 public class BottomUpMergeSort implements SortAlgo {
 
-    @Override
-    public long sort(Comparable[] arr) {
-        long start = System.currentTimeMillis();
-        int arrLen = arr.length;
-        Comparable[] tempArr = new Comparable[arrLen];
 
-        for (int stepLen = 1; stepLen < arrLen; stepLen *= 2) {
-            for (int j = 0; j + stepLen < arrLen; j += 2 * stepLen) {
-                BetterMergeSort.merge(arr, tempArr, j, Math.min(arrLen-1, j + 2 * stepLen-1), j + stepLen-1);
-            }
-//            System.out.println(JSON.toJSONString(arr));
-        }
-
-        long end = System.currentTimeMillis();
-        return end - start;
-    }
 
     public static void sortCompareDouble(int times, int minLen, int maxLen, int maxDur, SortAlgo sortAlgo) {
         for (int arrLen = minLen; arrLen <= maxLen; arrLen *= 2) {
@@ -44,6 +29,27 @@ public class BottomUpMergeSort implements SortAlgo {
 
         sortCompareDouble(Algs4Consts.times, Algs4Consts.minLen, Algs4Consts.maxLen, Algs4Consts.maxDur, new BottomUpMergeSort());
     }
+
+    @Override
+    public void sort(Comparable[] arr) {
+
+    }
+
+//    @Override
+//    public long sort(Comparable[] arr) {
+//        long start = System.currentTimeMillis();
+//        int arrLen = arr.length;
+//        Comparable[] tempArr = new Comparable[arrLen];
+//
+//        for (int stepLen = 1; stepLen < arrLen; stepLen *= 2) {
+//            for (int j = 0; j + stepLen < arrLen; j += 2 * stepLen) {
+//                BetterMergeSort.merge(arr, tempArr, j, Math.min(arrLen-1, j + 2 * stepLen-1), j + stepLen-1);
+//            }
+//        }
+//
+//        long end = System.currentTimeMillis();
+//        return end - start;
+//    }
 
 
 //    @Override

@@ -15,7 +15,7 @@ public class Algs4Consts {
     /**
      * 数组最小长度
      */
-    public static int minLen = 640000;
+    public static int minLen = 10000;
     /**
      * 数组最大长度
      */

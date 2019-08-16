@@ -8,6 +8,6 @@ package com.gaoyang.lzj.algs4learning.sortinterface;
  */
 public interface SortAlgo {
 
-    long sort(Comparable[] arr);
+    void sort(Comparable[] arr);
 
 }

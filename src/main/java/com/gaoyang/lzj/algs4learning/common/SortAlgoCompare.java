@@ -26,7 +26,10 @@ public class SortAlgoCompare {
                 doubles[i] = Math.random();
             }
 //            System.out.println(JSON.toJSONString(doubles));
-            total += sortAlgo.sort(doubles);
+            long sortStart = System.currentTimeMillis();
+            sortAlgo.sort(doubles);
+            long sortEnd = System.currentTimeMillis();
+            total += sortEnd - sortStart;
             for (int i = 0; i < length - 1; i++) {
                 if (doubles[i] > doubles[i + 1]) {
                     System.out.println(sortAlgo.getClass() + "算法排序出错");
@@ -80,20 +83,20 @@ public class SortAlgoCompare {
         long bettermerge7SortTime = 0, better14mergeSortTime = 0, better16mergeSortTime = 0, better30mergeSortTime = 0, bottomUpMergeSortTime = 0, mergeSortTime = 0, shellSortTime = 0, insertionSortTime = 0, slctSortTime = 0;
 
         for (int arrLen = minLen; arrLen <= maxLen; arrLen *= 2) {
-            if (betterHeapSortTime >= maxDur) {
-                System.out.printf("%24s:%24s处理更大规模的数组时间太长，不再执行更大规模的排序", new Date().toString(), BetterHeapSort.class.getSimpleName());
-                System.out.println();
-            } else {
-                betterHeapSortTime = sortTotalTime(times, arrLen, new BetterHeapSort());
-            }
-
-
-            if (heapSortTime >= maxDur) {
-                System.out.printf("%24s:%24s处理更大规模的数组时间太长，不再执行更大规模的排序", new Date(), HeapSort.class.getSimpleName());
-                System.out.println();
-            } else {
-                heapSortTime = sortTotalTime(times, arrLen, new HeapSort());
-            }
+//            if (betterHeapSortTime >= maxDur) {
+//                System.out.printf("%24s:%24s处理更大规模的数组时间太长，不再执行更大规模的排序", new Date().toString(), BetterHeapSort.class.getSimpleName());
+//                System.out.println();
+//            } else {
+//                betterHeapSortTime = sortTotalTime(times, arrLen, new BetterHeapSort());
+//            }
+//
+//
+//            if (heapSortTime >= maxDur) {
+//                System.out.printf("%24s:%24s处理更大规模的数组时间太长，不再执行更大规模的排序", new Date(), HeapSort.class.getSimpleName());
+//                System.out.println();
+//            } else {
+//                heapSortTime = sortTotalTime(times, arrLen, new HeapSort());
+//            }
 
 
 //            if (quickSortTime >= maxDur) {
@@ -152,18 +155,18 @@ public class SortAlgoCompare {
             }else{
                 shellSortTime = sortTotalTime(times, arrLen, new ShellSort());
             }
-//            if (insertionSortTime >= maxDur) {
-//                System.out.printf("%24s处理更大规模的数组时间太长，不再执行更大规模的排序", InsertionSort.class.getSimpleName());
-//                System.out.println();
-//            }else{
-//                insertionSortTime = sortTotalTime(times, arrLen, new InsertionSort());
-//            }
-//            if (slctSortTime >= maxDur) {
-//                System.out.printf("%24s处理更大规模的数组时间太长，不再执行更大规模的排序", SelectionSort.class.getSimpleName());
-//                System.out.println();
-//            }else{
-//                slctSortTime = sortTotalTime(times, arrLen, new SelectionSort());
-//            }
+            if (insertionSortTime >= maxDur) {
+                System.out.printf("%24s处理更大规模的数组时间太长，不再执行更大规模的排序", InsertionSort.class.getSimpleName());
+                System.out.println();
+            }else{
+                insertionSortTime = sortTotalTime(times, arrLen, new InsertionSort());
+            }
+            if (slctSortTime >= maxDur) {
+                System.out.printf("%24s处理更大规模的数组时间太长，不再执行更大规模的排序", SelectionSort.class.getSimpleName());
+                System.out.println();
+            }else{
+                slctSortTime = sortTotalTime(times, arrLen, new SelectionSort());
+            }
             System.out.println();
         }
         System.out.println();
@@ -216,7 +219,7 @@ public class SortAlgoCompare {
         // 排序次数
         int times = 10;
         // 数组最大长度
-        int minLen = 320000;
+        int minLen = 10000;
         // 数组最大长度
         int maxLen = 40960000;
 //        int maxLen = 10;

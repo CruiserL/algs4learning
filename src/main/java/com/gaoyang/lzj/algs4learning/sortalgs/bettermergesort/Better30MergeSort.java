@@ -13,19 +13,7 @@ import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
  * @date 2019/5/18
  */
 public class Better30MergeSort implements SortAlgo {
-    @Override
-    public long sort(Comparable[] arr) {
-        long start = System.currentTimeMillis();
-        int arrLen = arr.length;
-        Comparable[] tempArr = new Comparable[arrLen];
-        System.arraycopy(arr, 0, tempArr, 0, arrLen);
-        int left = 0, right = arrLen - 1, mid = (left + right) / 2;
-        mergeSort(arr, tempArr, left, right);
 
-        long end = System.currentTimeMillis();
-        return end - start;
-
-    }
 
     public static void mergeSort(Comparable[] arr, Comparable[] tempArr, int left, int right) {
         if (left >= right) {
@@ -79,6 +67,24 @@ public class Better30MergeSort implements SortAlgo {
         sortCompareDouble(Algs4Consts.times, Algs4Consts.minLen, Algs4Consts.maxLen, Algs4Consts.maxDur, new Better30MergeSort());
     }
 
+    @Override
+    public void sort(Comparable[] arr) {
+
+    }
+
+//    @Override
+//    public long sort(Comparable[] arr) {
+//        long start = System.currentTimeMillis();
+//        int arrLen = arr.length;
+//        Comparable[] tempArr = new Comparable[arrLen];
+//        System.arraycopy(arr, 0, tempArr, 0, arrLen);
+//        int left = 0, right = arrLen - 1, mid = (left + right) / 2;
+//        mergeSort(arr, tempArr, left, right);
+//
+//        long end = System.currentTimeMillis();
+//        return end - start;
+//
+//    }
 
 //    @Override
 //    public long sort(Comparable[] arr) {

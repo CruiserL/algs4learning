@@ -1,8 +1,9 @@
 package com.gaoyang.lzj.algs4learning.sortalgs;
 
 import com.gaoyang.lzj.algs4learning.common.SortAlgoCompare;
-import com.gaoyang.lzj.algs4learning.common.SortUtil;
 import com.gaoyang.lzj.algs4learning.sortinterface.SortAlgo;
+
+import static com.gaoyang.lzj.algs4learning.common.SortUtil.less;
 
 /**
  * Desc: 希尔排序
@@ -36,28 +37,89 @@ public class ShellSort implements SortAlgo {
     }
 
     @Override
-    public long sort(Comparable[] arr) {
-        long start = System.currentTimeMillis();
-        int arrLen = arr.length;
+    public void sort(Comparable[] arr) {
+        int len = arr.length;
         int stepLen = 1;
-        while (stepLen < arrLen) {
-            stepLen = 3 * stepLen + 1;
+        while (stepLen < len) {
+            stepLen = stepLen * 3 + 1;
         }
+
         while (stepLen > 0) {
-            for (int j = stepLen; j < arrLen; j++) {
-//                int i = j;
-                Comparable temp = arr[j];
-                int k = j;
-                for (; k - stepLen >= 0 && SortUtil.less(temp, arr[k - stepLen]); k -= stepLen) {
-                    arr[k] = arr[k - stepLen];
+            for (int i = stepLen; i < len; i++) {
+                Comparable temp = arr[i];
+                int j = i;
+                for (; j >= stepLen && less(temp, arr[j - stepLen]); j -= stepLen) {
+                    arr[j] = arr[j - stepLen];
                 }
-                arr[k] = temp;
+                arr[j] = temp;
             }
             stepLen /= 3;
         }
-        long end = System.currentTimeMillis();
-        return end - start;
     }
+
+
+//        int stepLen = 1;
+//        while (stepLen * 3 + 1 < len) {
+//            stepLen = stepLen * 3 + 1;
+//        }
+//
+//        while (stepLen > 0) {
+//            for (int i = stepLen; i < len; i++) {
+//                Comparable temp = arr[i];
+//                int j = i;
+//                for (; j >= stepLen && SortUtil.less(temp, arr[j - stepLen]); j -= stepLen) {
+//                    arr[j] = arr[j - stepLen];
+//                }
+//                arr[j] = temp;
+//            }
+//            stepLen /= 3;
+//        }
+
+
+//    @Override
+//    public void sort(Comparable[] arr) {
+//        int len = arr.length;
+//        int stepLen = 1;
+//        while(stepLen*3+1 < len){
+//            stepLen = stepLen*3+1;
+//        }
+//
+//        while(stepLen>0){
+//            for(int i = stepLen; i< len;i++){
+//                Comparable temp = arr[i];
+//                int j = i-stepLen;
+//                for(;j>=0 && SortUtil.less(temp, arr[j]);j-=stepLen){
+//                    arr[j+stepLen] = arr[j];
+//                }
+//                arr[j+stepLen] = temp;
+//            }
+//            stepLen = stepLen / 3;
+//        }
+//    }
+
+//    @Override
+//    public long sort(Comparable[] arr) {
+//        long start = System.currentTimeMillis();
+//        int arrLen = arr.length;
+//        int stepLen = 1;
+//        while (stepLen < arrLen) {
+//            stepLen = 3 * stepLen + 1;
+//        }
+//        while (stepLen > 0) {
+//            for (int j = stepLen; j < arrLen; j++) {
+////                int i = j;
+//                Comparable temp = arr[j];
+//                int k = j;
+//                for (; k - stepLen >= 0 && SortUtil.less(temp, arr[k - stepLen]); k -= stepLen) {
+//                    arr[k] = arr[k - stepLen];
+//                }
+//                arr[k] = temp;
+//            }
+//            stepLen /= 3;
+//        }
+//        long end = System.currentTimeMillis();
+//        return end - start;
+//    }
 
 //    long start = System.currentTimeMillis();
 //    int arrLen = arr.length;

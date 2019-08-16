@@ -17,7 +17,43 @@ public class BetterHeapSort implements SortAlgo {
         sortCompareDouble(Algs4Consts.times, Algs4Consts.minLen, Algs4Consts.maxLen, Algs4Consts.maxDur, new BetterHeapSort());
     }
 
+    @Override
+    public void sort(Comparable[] arr) {
+
+    }
+
+
 //    @Override
+//    public long sort(Comparable[] arr) {
+//        long start = System.currentTimeMillis();
+//        int arrLen = arr.length;
+//        for (int k = (arrLen - 2) / 2; k >= 0; k--) {
+//            sink(arr, k, arrLen);
+//        }
+//        while (arrLen > 1) {
+//            exchange(0, arrLen-- - 1, arr);
+//            sink(arr, 0, arrLen);
+//        }
+//
+//        long end = System.currentTimeMillis();
+//        return end - start;
+//    }
+//
+//    private void sink(Comparable[] arr, int k, int arrLen) {
+//        while (2 * k + 2 <= arrLen) {
+//            int j = 2 * k + 1;
+//            if (j < arrLen - 1 && arrLess(arr, j, j + 1)) {
+//                j++;
+//            }
+//            if (!arrLess(arr, k, j)) {
+//                break;
+//            }
+//            exchange(k, j, arr);
+//            k = j;
+//        }
+//    }
+
+    //    @Override
 //    public long sort(Comparable[] arr) {
 //        long end = System.currentTimeMillis();
 //        int arrLen = arr.length;
@@ -45,37 +81,6 @@ public class BetterHeapSort implements SortAlgo {
 //            k = j;
 //        }
 //    }
-
-
-    @Override
-    public long sort(Comparable[] arr) {
-        long start = System.currentTimeMillis();
-        int arrLen = arr.length;
-        for (int k = (arrLen - 2) / 2; k >= 0; k--) {
-            sink(arr, k, arrLen);
-        }
-        while (arrLen > 1) {
-            exchange(0, arrLen-- - 1, arr);
-            sink(arr, 0, arrLen);
-        }
-
-        long end = System.currentTimeMillis();
-        return end - start;
-    }
-
-    private void sink(Comparable[] arr, int k, int arrLen) {
-        while (2 * k + 2 <= arrLen) {
-            int j = 2 * k + 1;
-            if (j < arrLen - 1 && arrLess(arr, j, j + 1)) {
-                j++;
-            }
-            if (!arrLess(arr, k, j)) {
-                break;
-            }
-            exchange(k, j, arr);
-            k = j;
-        }
-    }
 
 
 //    @Override

@@ -21,7 +21,7 @@ public class SortTest {
         Stopwatch stopwatch = new Stopwatch();
         System.out.println(new Date());
         int arrLen = 10;
-        int testTime = 100;
+        int testTime = 10;
 
         Double[] linksArr = new Double[arrLen];
         for (int i = 0; i < arrLen; i++) {
@@ -31,7 +31,7 @@ public class SortTest {
             StdRandom.shuffle(linksArr);
             System.out.println("排序前数组：");
             System.out.println(JSON.toJSONString(linksArr));
-            new BetterHeapSort().sort(linksArr);
+            new InsertionSort().sort(linksArr);
 //        new QuickSort3WayAlgs4().sort(linksArr, 10);
 //        InsertionSort.staticSort(linksArr, 0, arrLen-1);
             System.out.println("数组排序完成：");
@@ -42,7 +42,7 @@ public class SortTest {
                     return;
                 }
             }
-            System.out.println("排序耗时： " + stopwatch.elapsedTime() + "s");
+            System.out.println("排序耗时： " + stopwatch.elapsedTime() + "s\n");
         }
         System.out.println(new Date());
     }
