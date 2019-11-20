@@ -32,7 +32,7 @@ public class MyStack {
 
     public MyStack(String str){
         this.top = 0;
-        this.charArr = new char[100];
+        this.charArr = new char[10000];
         for(int i = 0;i<str.length();i++){
             this.insert(str.charAt(i));
         }
@@ -77,7 +77,7 @@ public class MyStack {
     }
 
     public static void main(String[] args) {
-        In in = new In("H:\\leipzig1M.txt");
+        In in = new In("C:\\Users\\lizhe\\Videos\\common-default-usertaskcore-test-usertaskcore-deployment-6bbb98cdc7-jfb82.log");
         MyStack myStack = new MyStack();
         int num = 0;
         while(in.hasNextChar()){
@@ -86,6 +86,6 @@ public class MyStack {
                 num++;
             }
         }
-            System.out.println(num);
+        System.out.println(num);
     }
 }
